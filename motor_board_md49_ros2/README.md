@@ -24,3 +24,7 @@ x: Detenerse.
 q / e: Incrementar / disminuir velocidad lineal.
 z / c: Incrementar / disminuir velocidad angular.
 ```
+
+```
+ros2 pkg list | grep motor_board_md49_ros2
+```
