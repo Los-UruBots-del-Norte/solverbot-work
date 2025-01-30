@@ -13,6 +13,10 @@ sudo apt install ros-humble-teleop-twist-keyboard
 ros2 launch motor_board_md49_ros2 motor_board.launch.py
 ```
 
+```
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
 Cuando se ejecute, se abrirá una terminal adicional con las instrucciones de teleoperación. Los comandos típicos son:
 
 ```

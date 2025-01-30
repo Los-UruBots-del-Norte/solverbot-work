@@ -1,4 +1,8 @@
 motor_board_node:
   ros__parameters:
-    serial_port: "/dev/ttyUSB1"
+    serial_port: "/dev/ttyUSB0"
     baudrate: 38400
+    max_linear_speed: 0.5    # Ajustar según tus motores
+    max_angular_speed: 1.0
+    wheel_separation: 0.3    # Distancia entre ruedas (metros)
+    wheel_radius: 0.1        # Radio de las ruedas (metros)

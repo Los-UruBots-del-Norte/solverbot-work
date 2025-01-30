@@ -1,31 +1,20 @@
+import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch.substitutions import LaunchConfiguration
-from launch.actions import DeclareLaunchArgument
+from ament_index_python.packages import get_package_share_directory, get_package_prefix
 
 def generate_launch_description():
+    package_name = 'motor_board_md49_ros2'
+
+    package_share_dir = get_package_share_directory(package_name)
+    params_file = os.path.join(package_share_dir, 'config', 'params.yaml')
+
     return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_teleop',
-            default_value='true',
-            description='Enable teleoperation with keyboard'
-        ),
         Node(
-            package='motor_board_md49_ros2',
-            executable='ros_interface',
+            package=package_name,
+            output='screen',
+            executable='motor_board_node',  # ¡Coincide con el nombre en entry_points!
             name='motor_board_node',
-            output='screen',
-            parameters=['config/params.yaml']
+            parameters=[params_file]
         ),
-        Node(
-            condition=LaunchConfiguration('use_teleop') == 'true',
-            package='teleop_twist_keyboard',
-            executable='teleop_twist_keyboard',
-            name='teleop_twist_keyboard',
-            output='screen',
-            prefix='xterm -e',
-            remappings=[
-                ('/cmd_vel', '/cmd_vel')
-            ]
-        )
     ])

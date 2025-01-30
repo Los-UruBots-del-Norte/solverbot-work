@@ -30,6 +30,7 @@ class MotorBoardMD49:
     ENABLE_TIMEOUT = b'\x39'
 
     def __init__(self, port, baudrate=38400):
+        print("MotorBoardMD49 inited")
         self._uart = serial.Serial(
             port=port,
             baudrate=baudrate,
