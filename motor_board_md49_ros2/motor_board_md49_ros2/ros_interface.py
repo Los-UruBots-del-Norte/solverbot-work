@@ -89,14 +89,24 @@ class MotorBoardNode(Node):
         right = (linear + angular * wheel_sep / 2) / wheel_rad
 
         # Mapear a rango MD49 (0-255)
-        left_mapped = self.map_velocity(left)
-        right_mapped = self.map_velocity(right)
+        left_mapped = self.map_speed(left)
+        right_mapped = self.map_speed(right)
 
         # Enviar comandos a los motores
-        self.get_logger().info(f"Mandando velocidad a motores 1:  {left_mapped}  2:  {right_mapped} ")
+        self.get_logger().debug(f"Motores: L={left_mapped} | R={right_mapped}")
 
         self.motor_board.SetSpeed1(left_mapped)
         self.motor_board.set_speed_2_turn(right_mapped)
+        
+    def map_speed(self, speed):
+        """Convierte velocidad en m/s a rango MD49 (0-255)"""
+        # MAX_MOTOR_SPEED = 255
+        NEUTRAL = 128
+        
+        # Escalar velocidad (-1 a 1) -> (-127 a 127)
+        mapped = int(speed * 127)
+        # Aplicar offset para rango MD49
+        return max(0, min(NEUTRAL + mapped, 255))
 
     def map_velocity(self, velocity):
         """Mapea una velocidad [-1, 1] al rango 0-255 del MD49."""
