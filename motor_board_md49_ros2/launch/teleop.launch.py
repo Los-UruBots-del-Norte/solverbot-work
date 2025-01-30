@@ -1,13 +1,12 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import ExecuteProcess
 
 def generate_launch_description():
     return LaunchDescription([
-        Node(
-            package='teleop_twist_keyboard',
-            executable='teleop_twist_keyboard',
-            name='teleop_node',
+        ExecuteProcess(
+            cmd=['ros2', 'run', 'teleop_twist_keyboard', 'teleop_twist_keyboard'],
             output='screen',
-            # remappings=[('/cmd_vel', '/cmd_vel')]
+            prefix='x-terminal-emulator -e'  # Abre en una nueva terminal
         )
     ])

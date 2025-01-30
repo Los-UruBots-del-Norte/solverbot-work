@@ -13,7 +13,7 @@ def generate_launch_description():
         Node(
             package=package_name,
             output='screen',
-            executable='motor_board_node',  # ¡Coincide con el nombre en entry_points!
+            executable='motor_board_node',
             name='motor_board_node',
             parameters=[params_file]
         ),
