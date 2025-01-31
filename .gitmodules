@@ -1,0 +1,12 @@
+[submodule "open_manipulator"]
+	path = open_manipulator
+	url = https://github.com/Los-UruBots-del-Norte/open_manipulator.git
+[submodule "open_manipulator_msgs"]
+	path = open_manipulator_msgs
+	url = https://github.com/Los-UruBots-del-Norte/open_manipulator_msgs.git
+[submodule "robotis_manipulator"]
+	path = robotis_manipulator
+	url = https://github.com/Los-UruBots-del-Norte/robotis_manipulator.git
+[submodule "urg_node2"]
+	path = urg_node2
+	url = https://github.com/Los-UruBots-del-Norte/urg_node2.git
