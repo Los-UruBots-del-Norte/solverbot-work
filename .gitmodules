@@ -10,3 +10,9 @@
 [submodule "urg_node2"]
 	path = urg_node2
 	url = https://github.com/Los-UruBots-del-Norte/urg_node2.git
+[submodule "turtlebot3"]
+	path = turtlebot3
+	url = https://github.com/Los-UruBots-del-Norte/turtlebot3.git
+[submodule "turtlebot3_simulations"]
+	path = turtlebot3_simulations
+	url = https://github.com/Los-UruBots-del-Norte/turtlebot3_simulations.git
